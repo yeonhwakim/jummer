@@ -28,12 +28,18 @@ module.exports = {
         test: /\.(js|mjs|jsx|ts|tsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: ["babel-loader", "eslint-loader"],
+          // loader: ["babel-loader", "eslint-loader"],
+          loader: "babel-loader",
           options: {
             presets: ['react-app']
           },
         }
       },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader", "eslint-loader"]
+      }
     ],
   },
   plugins: [
