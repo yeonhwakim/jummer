@@ -20,7 +20,12 @@
   },
   "homepage": "https://github.com/yeonhwakim/jummer#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.6",
     "react": "^16.10.2",
+    "react-device-detect": "^1.9.10",
     "react-dom": "^16.10.2"
   },
   "devDependencies": {
@@ -32,6 +37,7 @@
     "css-loader": "^3.2.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-react-app": "^5.0.2",
     "eslint-loader": "^3.0.2",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
