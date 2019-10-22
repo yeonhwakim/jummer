@@ -4,13 +4,13 @@ exports.config = {
   helpers: {
     Puppeteer: {
       url: 'http://localhost',
-      show: true
-    }
+      show: true,
+    },
   },
   include: {
-    I: './e2e_test/steps_file.js'
+    I: './e2e_test/steps_file.js',
   },
   bootstrap: null,
   mocha: {},
-  name: 'jummer'
-}
+  name: 'jummer',
+};

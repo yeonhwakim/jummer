@@ -7,7 +7,7 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "test": "jest",
-    "lint": "eslint --ext .js,.jsx "
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "repository": {
     "type": "git",
@@ -51,6 +51,7 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-react-app": "^5.0.2",
     "eslint-loader": "^3.0.2",
+    "eslint-plugin-flowtype": "^4.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
