@@ -1,5 +1,14 @@
 {
-  "plugins": [
-    "styled-jsx/babel"
+  "plugins": ["styled-jsx/babel", "babel-plugin-styled-components"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
   ]
+  
 }

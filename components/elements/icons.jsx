@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -9,6 +10,8 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { faFileMedical } from "@fortawesome/free-solid-svg-icons"
 import { faHome } from "@fortawesome/free-solid-svg-icons"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faTimes } from "@fortawesome/free-solid-svg-icons"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 
 // add imported icons
@@ -17,8 +20,19 @@ const icons = {
   userPlus: faUserPlus,
   listPlus: faPlus,
   home: faHome,
-  out: faArrowRight
+  out: faArrowRight,
+  close: faTimes,
+  moveBar: faBars
 }
 
+const Icon = styled.i`
+  display: inline-block;
+  padding: 5px;
+  cursor: pointer;
+`;
 
-export default props => <FontAwesomeIcon icon={icons[props.icon]} />;
+export default ({ icon, size, color }) =>( 
+  <>
+    <Icon><FontAwesomeIcon icon={icons[icon]} size={size} color={color} /></Icon> 
+  </>
+)

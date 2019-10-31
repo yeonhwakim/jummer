@@ -1,1 +1,4 @@
 # jummer
+
+
+#### npm start
