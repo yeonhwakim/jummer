@@ -11,7 +11,8 @@ const restaurantList = [
     comments: {
       'karen1':'짱맛1',
       'karen2':'그닥2'
-    }
+    },
+    count: 1
   },
   {
     name:'쟁반짜장', 
@@ -19,7 +20,8 @@ const restaurantList = [
     comments: {
       'karen3':'짱맛3',
       'karen4':'그닥4'
-    }
+    },
+    count: 5
   },
   {
     name:'샤브샤브', 
@@ -27,7 +29,8 @@ const restaurantList = [
     comments: {
       'karen5':'짱맛5',
       'karen6':'그닥6'
-    }
+    },
+    count: 0
   },
   {
     name:'라멘', 
@@ -35,7 +38,8 @@ const restaurantList = [
     comments: {
       'karen5':'짱맛5',
       'karen6':'그닥6'
-    }
+    },
+    count: 7
   },
 ]
 

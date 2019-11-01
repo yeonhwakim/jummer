@@ -1,38 +1,48 @@
 import React from "react"
 import styled from "styled-components"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 
 // icon import
-import { faComments } from "@fortawesome/free-solid-svg-icons"
-import { faUserPlus } from "@fortawesome/free-solid-svg-icons"
-import { faPlus } from "@fortawesome/free-solid-svg-icons"
-import { faFileMedical } from "@fortawesome/free-solid-svg-icons"
-import { faHome } from "@fortawesome/free-solid-svg-icons"
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import { faTimes } from "@fortawesome/free-solid-svg-icons"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
-
+import { Forum } from 'styled-icons/material'
+import { GroupAdd } from 'styled-icons/material'
+import { PlaylistAdd } from 'styled-icons/material'
+import { Home } from 'styled-icons/material'
+import { CallMissedOutgoing } from 'styled-icons/material'
+import { Close } from 'styled-icons/material'
+import { DragHandle } from 'styled-icons/material'
+import { Star } from 'styled-icons/material'
+import { StarBorder } from 'styled-icons/material'
 
 // add imported icons
 const icons = {
-  chat: faComments,
-  userPlus: faUserPlus,
-  listPlus: faPlus,
-  home: faHome,
-  out: faArrowRight,
-  close: faTimes,
-  moveBar: faBars
+  chat: <Forum/>,
+  userPlus: <GroupAdd/>,
+  listPlus: <PlaylistAdd/>,
+  home: <Home/>,
+  out: <CallMissedOutgoing/>,
+  close: <Close/>,
+  moveBar: <DragHandle/>,
+  star: <StarBorder/>,
+  fullStar: <Star/>,
 }
 
-const Icon = styled.i`
+const Icons = styled.i`
   display: inline-block;
   padding: 5px;
   cursor: pointer;
-`;
+
+  svg {
+    width: ${props => props.size};
+    height: ${props => props.size};
+    color: ${props => props.color};
+  } 
+`
 
 export default ({ icon, size, color }) =>( 
   <>
-    <Icon><FontAwesomeIcon icon={icons[icon]} size={size} color={color} /></Icon> 
+    <Icons  icon={ icon } size={ size } color = { color }>
+      {icons[icon]}
+    </Icons>
   </>
 )

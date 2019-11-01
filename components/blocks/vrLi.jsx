@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import Star from './star'
+
 const VrLi = styled.li`
   padding: 5px 20px;
 
@@ -45,19 +47,21 @@ const DetailBox = styled.div`
   padding: 10px 15px;
 `
 
-export default ({ restaurant }) => {
+export default ({ restaurant, voteArr, index }) => {
   const [open, useOpen] = useState(false)
-  const [count, useCount] = useState(0)
-
+  const [count, useCount] = useState(restaurant.count)
+  const [vote , useVote] = useState(voteArr)
+console.log(vote)
   return(
     <VrLi>
       <ListBox>
         <div className="name"  onClick={ () => useOpen(open ? false : true) }>
           <div className="ellipsis">{restaurant.name}</div>
         </div>
-        <div className={`voteNumber ${ count }`} onClick={ () => useCount(prev => prev ? count-1 : count+1) }>{ count }</div>
+        <div className="voteNumber" onClick={ () => useCount(prev => prev + 1) }>{ vote[index] }</div>
       </ListBox>
       <DetailBox open = { open }>
+        {/* <Star star={ restaurant.star }/> */}
         <div>{restaurant.star}</div>
         <div>{
           Object.keys(restaurant.comments).map( c => (

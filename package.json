@@ -30,7 +30,8 @@
     "react-dom": "^16.10.2",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "styled-icons": "^8.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

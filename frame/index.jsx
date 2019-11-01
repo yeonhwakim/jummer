@@ -10,7 +10,7 @@ const Index = () => {
   return(
     <BrowserRouter>
       <Global>
-        <Route path="/" component={ VoteRoom }/>
+        <Route exact path="/" component={ VoteRoom }/>
         <Route path="/list" component={ RoomList }/>
       </Global>
     </BrowserRouter>

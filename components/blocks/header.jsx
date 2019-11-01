@@ -17,12 +17,6 @@ const Header = styled.div`
   i:not(:last-child) {
     margin-right: 5px;
   }
-
-  svg {
-    display: inline-block;
-    font-size: 20px;
-    color: #5e5e5e;
-  }
 `;
 
 export default ({ icons }) => {

@@ -7,13 +7,13 @@ import Icon from '../elements/icons'
 export default () => {
   return(
     <Menu>
-      <Icon icon={ 'chat' } color={ '#5e5e5e' } size={ '1x' }/>
-      <Icon icon={ 'userPlus' } color={ '#5e5e5e' } size={ '1x' }/>
-      <Icon icon={ 'listPlus' } color={ '#5e5e5e' } size={ '1x' }/>
+      <Icon icon={ 'chat' } color={ '#5e5e5e' } size={ '25px' }/>
+      <Icon icon={ 'userPlus' } color={ '#5e5e5e' } size={ '25px' }/>
+      <Icon icon={ 'listPlus' } color={ '#5e5e5e' } size={ '25px' }/>
       <Link to="/list">
-        <Icon icon={ 'home' } color={ '#5e5e5e' } size={ '1x' }/>
+        <Icon icon={ 'home' } color={ '#5e5e5e' } size={ '25px' }/>
       </Link>
-      <Icon icon={ 'out' } color={ '#5e5e5e' } size={ '1x' }/>
+      <Icon icon={ 'out' } color={ '#5e5e5e' } size={ '25px' }/>
     </Menu>
   )
 }
