@@ -2,52 +2,25 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import Ul from '../elements/ul'
-// import VrLi from './vrLi'
+import VrLi from './vrLi'
 
 const VrUl = styled(Ul)`
   padding: 5px 0;
 `
 
 export default ({ data }) => {
-  const [open, useOpen] = useState(false)
-  const [vote , useVote] = useState([[]])
-  const [history , usehistory] = useState([[]])
+  const [vote , useVote] = useState([])
 
   useEffect(() => {
     data.map(d => (
-      useVote(prevState => [...prevState, [d.count, 0]])
+      useVote(prevState => [...prevState, d.count])
     ))
   },[])
-  
-  const voting = (s, i) => {
-    console.log(s, i)
-    const history = usehistory([...vote])
 
-
-  }
-console.log(vote)
   return(
     <VrUl>
       {data.map((restaurant, index) => (
-          <VrLi key={restaurant.name}>
-           <ListBox>
-             <div className="name"  onClick={ () => useOpen(open ? false : true) }>
-               <div className="ellipsis">{restaurant.name}</div>
-             </div>
-             <div className="voteNumber" onClick={ () => voting(vote[index][0],  vote[index][1]) }>{ vote[index][0] }</div>
-           </ListBox>
-           <DetailBox open = { open }>
-             {/* <Star star={ restaurant.star }/> */}
-             <div>{restaurant.star}</div>
-             <div>{
-               Object.keys(restaurant.comments).map( c => (
-                 <div key={restaurant.comments[c]}>
-                   <span>{c} : </span><span>{restaurant.comments[c]}</span>
-                 </div>
-               ))
-             }</div>
-           </DetailBox>
-         </VrLi>
+          <VrLi key={restaurant.name} restaurant={restaurant} voteArr={vote} index={index}/>
       ))}
     </VrUl>
   )

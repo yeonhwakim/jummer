@@ -51,7 +51,7 @@ export default ({ restaurant, voteArr, index }) => {
   const [open, useOpen] = useState(false)
   const [count, useCount] = useState(restaurant.count)
   const [vote , useVote] = useState(voteArr)
-console.log(vote)
+  
   return(
     <VrLi>
       <ListBox>
