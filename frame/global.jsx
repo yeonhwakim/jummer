@@ -28,10 +28,6 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 
-  ul {
-    list-style: none;
-  }
-
   .ellipsis{
     white-space: nowrap; 
     overflow: hidden;
