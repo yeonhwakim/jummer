@@ -28,9 +28,10 @@ export const ItemInfo = styled.div`
     width: 198px;
   }
 
-  .voteNumber{
+  .counter{
     padding: 15px 10px;
-    width: 30px;
+    width: 51px;
+    border: none;
     border-radius: 5px;
     background-color: #9e9e9e;
     font-weight: bold;
