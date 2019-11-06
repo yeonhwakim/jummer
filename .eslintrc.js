@@ -38,6 +38,9 @@ module.exports = {
     'padded-blocks': 0,
     'no-unused-vars': 0,
     'object-curly-spacing': 0,
-    'no-console': 0
+    'no-console': 0,
+    'no-case-declarations': 0,
+    'prefer-destructuring': 0,
+    'object-shorthand': 0
   },
 };

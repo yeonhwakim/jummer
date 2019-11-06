@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback, useReducer, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setItem, addItem } from '../actions'
+import { setItem, addItem, voteItem } from '../actions'
 
 
 import MainTemplate from '../components/templates/main'
@@ -31,6 +31,7 @@ export default () => {
     }
     dispatch(addItem(input.current.value)) 
   }
+  const voteItems = index => dispatch(voteItem(index)) 
 
   return(
     <MainTemplate icons={ <VoteRoomMenu/> } title={ "roumit lunchTime" }>
@@ -51,7 +52,7 @@ export default () => {
                     <div className="name">
                       <div className="ellipsis">{item.name}</div>
                     </div>
-                    <button className="counter" onClick={ () => vote(index) }>{item.counter}</button>
+                    <button className="counter" onClick={ () => voteItems(index) }>{item.counter}</button>
                   </ItemInfo>
                 </Item>
               ))
