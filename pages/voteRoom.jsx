@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback, useReducer, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setItem, addItem, voteItem } from '../actions'
+import { setItem, addItem, voteItem, getItem } from '../actions'
 
 
 import MainTemplate from '../components/templates/main'
@@ -37,8 +37,8 @@ export default () => {
     <MainTemplate icons={ <VoteRoomMenu/> } title={ "roumit lunchTime" }>
       <AddItemForm onSubmit={ addItems }>
         <div>
-          <input className="addInput" ref={ input } value={ value } onChange={ setItems }/>
-          <button type="submit" className="addBtn">ADD</button>
+          <input ref={ input } value={ value } onChange={ setItems }/>
+          <button type="submit">ADD</button>
         </div>
       </AddItemForm>
       {

@@ -1,4 +1,4 @@
-import { SET_ITEM, ADD_ITEM, VOTE_ITEM } from './actionTypes'
+import { SET_ITEM, ADD_ITEM, VOTE_ITEM, GET_ITEM } from './actionTypes'
 
 export const setItem = (value) => {
   return {
@@ -7,7 +7,7 @@ export const setItem = (value) => {
   }
 }
 
-export const addItem = (item) => {
+export const addItem = (item, index) => {
   return {
     type: ADD_ITEM,
     item
@@ -19,4 +19,8 @@ export const voteItem = (index) => {
     type: VOTE_ITEM,
     index
   }
+}
+
+export const getItem = () => {
+  return { type: GET_ITEM }
 }

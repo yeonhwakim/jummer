@@ -5,7 +5,7 @@ import Title from '../elements/title'
 
 const Content = styled.div`
   width: 100%;
-  height: calc(100% - 60px);
+  height: calc(100% - 65.39px);
   overflow: auto;
 `;
 

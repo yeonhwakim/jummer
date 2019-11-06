@@ -20,6 +20,11 @@ const GlobalStyle = createGlobalStyle`
     background-color: rgba(190,190,190,0.92);
   }
 
+  body{overflow-x: hidden;}
+  body *::-webkit-scrollbar {width: 0.31rem;}
+  body *::-webkit-scrollbar-track {background: #eeeeee; border-radius: 0.25rem;}
+  body *::-webkit-scrollbar-thumb {background:  #999999; border-radius: 0.25rem;}
+
   #root{
     width: 100%; 
     height: 100%; 
@@ -34,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
     text-overflow: ellipsis; 
     overflow: hidden;
   }
-
+  
 `
 
 const Global = styled.div`

@@ -41,6 +41,9 @@ module.exports = {
     'no-console': 0,
     'no-case-declarations': 0,
     'prefer-destructuring': 0,
-    'object-shorthand': 0
-  },
+    'object-shorthand': 0,
+    'object-curly-newline': 0,
+    'no-bitwise': 0,
+    'no-multiple-empty-lines': 0
+  }
 };
