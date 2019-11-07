@@ -29,7 +29,7 @@ module.exports = {
         test: /\.(js|mjs|jsx|ts|tsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          // loader: ["babel-loader", "eslint-loader"],
+          loader: ["babel-loader", "eslint-loader"],
           loader: 'babel-loader',
           options: {
             presets: ['react-app'],

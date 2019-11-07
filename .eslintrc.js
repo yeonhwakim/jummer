@@ -44,6 +44,8 @@ module.exports = {
     'object-shorthand': 0,
     'object-curly-newline': 0,
     'no-bitwise': 0,
-    'no-multiple-empty-lines': 0
+    'no-multiple-empty-lines': 0,
+    'prefer-object-spread': 0,
+    'no-param-reassign': 0
   }
 };
