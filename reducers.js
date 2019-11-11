@@ -8,6 +8,7 @@ const initialState = {
 }
 
 export const reducer = (prevState = initialState, action) => {
+  console.log(action.index)
   return produce(prevState, (draft) => {
     switch (action.type) {
       case SET_ITEM : 

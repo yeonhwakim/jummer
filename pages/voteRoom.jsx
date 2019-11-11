@@ -37,8 +37,8 @@ export default () => {
     <MainTemplate icons={ <VoteRoomMenu/> } title={ "roumit lunchTime" }>
       <AddItemForm onSubmit={ addItems }>
         <div>
-          <input ref={ input } value={ value } onChange={ setItems }/>
-          <button type="submit">ADD</button>
+          <input className="addInput" ref={ input } value={ value } onChange={ setItems }/>
+          <button className="addBtn" type="submit">ADD</button>
         </div>
       </AddItemForm>
       {
@@ -52,7 +52,7 @@ export default () => {
                     <div className="name">
                       <div className="ellipsis">{item.name}</div>
                     </div>
-                    <button className="counter" onClick={ () => voteItems(index) }>{item.counter}</button>
+                    <button className="counter" onClick={ () => voteItems(index)}>{item.counter}</button>
                   </ItemInfo>
                 </Item>
               ))

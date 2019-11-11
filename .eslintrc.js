@@ -46,6 +46,7 @@ module.exports = {
     'no-bitwise': 0,
     'no-multiple-empty-lines': 0,
     'prefer-object-spread': 0,
-    'no-param-reassign': 0
+    'no-param-reassign': 0,
+    'space-in-parens':0
   }
 };
