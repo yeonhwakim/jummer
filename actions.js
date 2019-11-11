@@ -7,17 +7,18 @@ export const setItem = (value) => {
   }
 }
 
-export const addItem = (item, index) => {
+export const addItem = (item, key) => {
   return {
     type: ADD_ITEM,
-    item
+    item,
+    key,
   }
 }
 
-export const voteItem = (index) => {
+export const voteItem = (key) => {
   return {
     type: VOTE_ITEM,
-    index
+    key
   }
 }
 

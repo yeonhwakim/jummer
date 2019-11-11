@@ -3,39 +3,38 @@ import { SET_ITEM, ADD_ITEM, VOTE_ITEM, GET_ITEM } from './actionTypes'
 
 const initialState = {
   value: '',
-  items: [],
-  prevIndex: ''
+  items: {},
+  prevKey: ''
 }
 
 export const reducer = (prevState = initialState, action) => {
-  console.log(action.index)
   return produce(prevState, (draft) => {
     switch (action.type) {
       case SET_ITEM : 
         draft.value = action.value
         break
       case ADD_ITEM :
-        draft.items.unshift({name: action.item, counter: 0})
+        draft.items[action.key] = {name: action.item, counter: 0}
         draft.value = ''
         break
       case VOTE_ITEM : 
         const items = draft.items
   
-        const currIndex = action.index 
-        const prevIndex = prevState.prevIndex 
+        const currKey = action.key 
+        const prevKey = prevState.prevKey 
   
-        const currItem = items[currIndex]
-        const updateCounter = currIndex === prevIndex ? currItem.counter - 1 : currItem.counter + 1
-        items[currIndex].counter = updateCounter
+        const currItem = items[currKey]
+        const updateCounter = currKey === prevKey ? currItem.counter - 1 : currItem.counter + 1
+        items[currKey].counter = updateCounter
         
-        if (prevIndex !== '' && currIndex !== prevIndex) {
-          const prevItem = items[prevIndex]
+        if (prevKey !== '' && currKey !== prevKey) {
+          const prevItem = items[prevKey]
           const backCounter = prevItem.counter - 1
-          items[prevIndex].counter = backCounter
+          items[prevKey].counter = backCounter
         }
         
         draft.items = items
-        draft.prevIndex = currIndex === prevIndex ? '' : action.index
+        draft.prevKey = currKey === prevKey ? '' : action.key
         break
       case GET_ITEM : 
         break

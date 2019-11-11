@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useReducer, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setItem, addItem, voteItem, getItem } from '../actions'
-
+import { generateKey } from '../js/generateKey'
 
 import MainTemplate from '../components/templates/main'
 import VoteRoomMenu from '../components/blocks/menuVR'
@@ -23,15 +23,18 @@ export default () => {
   },[])
 
   const setItems = e => dispatch(setItem(e.target.value)) 
+
   const addItems = e => {
     e.preventDefault()
     if(!input.current.value) {
       alert('식당이름을 입력해주세요.')
       return
     }
-    dispatch(addItem(input.current.value)) 
+
+    dispatch(addItem(input.current.value, generateKey())) 
   }
-  const voteItems = index => dispatch(voteItem(index)) 
+
+  const voteItems = key => dispatch(voteItem(key)) 
 
   return(
     <MainTemplate icons={ <VoteRoomMenu/> } title={ "roumit lunchTime" }>
@@ -42,17 +45,17 @@ export default () => {
         </div>
       </AddItemForm>
       {
-        !items.length ? 
+        !Object.keys(items).length ? 
           <NotiAddItem>점심 메뉴를 추가해주세요.</NotiAddItem> :
           <Items>
             {
-              items.map((item, index) => (
-                <Item key={item + index}>
+              Object.keys(items).map((key) => (
+                <Item key={key}>
                   <ItemInfo>
                     <div className="name">
-                      <div className="ellipsis">{item.name}</div>
+                      <div className="ellipsis">{items[key].name}</div>
                     </div>
-                    <button className="counter" onClick={ () => voteItems(index)}>{item.counter}</button>
+                    <button className="counter" onClick={ () => voteItems(key)}>{items[key].counter}</button>
                   </ItemInfo>
                 </Item>
               ))
