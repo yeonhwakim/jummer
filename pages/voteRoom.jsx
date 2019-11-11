@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useReducer, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setItem, addItem, voteItem, getItem } from '../actions'
-import { generateKey } from '../js/generateKey'
+import { generateKey } from '../js/tools'
 
 import MainTemplate from '../components/templates/main'
 import VoteRoomMenu from '../components/blocks/menuVR'
@@ -49,7 +49,7 @@ export default () => {
           <NotiAddItem>점심 메뉴를 추가해주세요.</NotiAddItem> :
           <Items>
             {
-              Object.keys(items).map((key) => (
+              Object.keys(items).reverse().map((key) => (
                 <Item key={key}>
                   <ItemInfo>
                     <div className="name">
