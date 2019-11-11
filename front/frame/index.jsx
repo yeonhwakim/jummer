@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import store from '../store'
 
 import Global from './global'
+import Socket from './socket'
 import VoteRoom from '../pages/voteRoom'
 import RoomList from '../pages/roomList'
 
@@ -12,6 +13,7 @@ const Index = () => {
   return(
     <BrowserRouter>
       <Global>
+        <Socket/>
         <Route exact path="/" component={ VoteRoom }/>
         <Route path="/list" component={ RoomList }/>
       </Global>

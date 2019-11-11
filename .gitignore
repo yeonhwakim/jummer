@@ -1,7 +1,8 @@
-node_modules
+front/node_modules
+server/node_modules
 
-dist
+front/dist
 
 backup
 
-e2e_test/output/
+front/e2e_test/output/
