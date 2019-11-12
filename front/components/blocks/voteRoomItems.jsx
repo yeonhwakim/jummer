@@ -1,13 +1,13 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import Ul from '../elements/ul'
+import Ul from '../elements/ul';
 
 export const Items = styled(Ul)`
   padding: 5px 0;
-`
+`;
 export const Item = styled.li`
   padding: 5px 20px;
-`
+`;
 
 export const ItemInfo = styled.div`
   display:flex;
@@ -40,4 +40,4 @@ export const ItemInfo = styled.div`
     cursor: pointer;
     text-align: center;
   }
-`
+`;

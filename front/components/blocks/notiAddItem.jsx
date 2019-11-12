@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const NotiAddItem = styled.div`
   margin: auto;
@@ -8,4 +8,4 @@ export const NotiAddItem = styled.div`
   font-weight: bold;
   font-size: 16px;
   color: #5e5e5e;
-`
+`;

@@ -1,1 +1,5 @@
 node_modules
+
+dist/app.js
+
+e2e_test

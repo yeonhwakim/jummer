@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import Logo from '../elements/logo'
+import Logo from '../elements/logo';
 
 const Header = styled.div`
   display: flex;
@@ -19,11 +19,9 @@ const Header = styled.div`
   }
 `;
 
-export default ({ icons }) => {
-  return(
-    <Header>
-      <Logo/>
-      { icons }
-    </Header>
-  )
-}
+export default ({ icons }) => (
+  <Header>
+    <Logo />
+    { icons }
+  </Header>
+);

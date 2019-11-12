@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import Icon from '../elements/icons'
+import Icon from '../elements/icons';
 
 const RlLi = styled.li`
   padding: 10px 20px;
@@ -29,27 +29,21 @@ const RlLi = styled.li`
     color: #5e5e5e;
     line-height: 1.5;
   }
-`
+`;
 
 
-export default ({ room }) => {
-  return(
-    <RlLi>
+export default ({ room }) => (
+  <RlLi>
+    <div>
       <div>
-        <div>
-          <p className="name ellipsis">{room.name}</p>
-          <p className="time">{room.lunchTime}</p>
-        </div>
-        <Icon icon={ 'moveBar' } size={'lg'} color={'#5e5e5e'}/>
+        <p className="name ellipsis">{room.name}</p>
+        <p className="time">{room.lunchTime}</p>
       </div>
-      <div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-      </div>
-    </RlLi>
-  )
-}
+      <Icon icon="moveBar" size="lg" color="#5e5e5e" />
+    </div>
+    <div>
+      <div />
+      <div />
+    </div>
+  </RlLi>
+);

@@ -1,13 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import Menu from '../blocks/menu'
-import Icon from '../elements/icons'
+import Menu from './menu';
+import Icon from '../elements/icons';
 
-export default () => {
-  return(
+export default () => (
   <Menu>
-    <Icon icon={ 'listPlus' } size={ '25px' } color={ '#5e5e5e' }/>
+    <Icon icon="listPlus" size="25px" color="#5e5e5e" />
   </Menu>
-  )
-}
-
+);

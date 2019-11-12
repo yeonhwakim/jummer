@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const AddItemForm = styled.form`
   div {
@@ -38,4 +38,4 @@ export const AddItemForm = styled.form`
     color: #5e5e5e;
     cursor: pointer;
   }
-`
+`;

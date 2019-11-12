@@ -1,5 +1,5 @@
-import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -40,22 +40,20 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
   
-`
+`;
 
 const Global = styled.div`
   position: relative;
   width: 360px;
   height: 600px;
   background-color: #ffffff;
-` 
+`;
 
-export default ({ children }) => {
-  return(
-    <>
-      <GlobalStyle/>
-      <Global>
-        {children}
-      </Global>
-    </>
-  )
-}
+export default ({ children }) => (
+  <>
+    <GlobalStyle />
+    <Global>
+      {children}
+    </Global>
+  </>
+);

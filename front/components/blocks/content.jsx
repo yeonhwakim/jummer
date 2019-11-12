@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import Title from '../elements/title'
+import Title from '../elements/title';
 
 const Content = styled.div`
   width: 100%;
@@ -9,11 +9,9 @@ const Content = styled.div`
   overflow: auto;
 `;
 
-export default ({ title, children }) => {
-  return(
-    <Content>
-      <Title>{title}</Title>
-      { children }
-    </Content>
-  )
-}
+export default ({ title, children }) => (
+  <Content>
+    <Title>{title}</Title>
+    { children }
+  </Content>
+);

@@ -1,9 +1,3 @@
 const shortid = require('shortid');
 
-export const generateKey = () => {
-  return shortid.generate() + Date.now()
-}
-
-export const sortItems = () => {
-  
-}
+export const generateKey = () => shortid.generate() + Date.now();

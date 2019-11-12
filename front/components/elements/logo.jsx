@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Logo = styled.div`
   h1 {
@@ -8,6 +8,4 @@ const Logo = styled.div`
     color: #5e5e5e;
   }
 `;
-export default () => {
-  return <Logo><h1>JUMMER</h1></Logo>
-}
+export default () => <Logo><h1>JUMMER</h1></Logo>;
