@@ -27,6 +27,7 @@ module.exports = {
     'react/prop-types': 0,
     'import/prefer-default-export': 0,
     'no-param-reassign': 0,
-    'no-alert': 0
+    'no-alert': 0,
+    'prefer-destructuring': 0
   }
 };

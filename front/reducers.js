@@ -13,15 +13,15 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
   switch (action.type) {
     case SET_ITEM: {
       draft.value = action.value;
-      break;
+      return draft;
     }
     case ADD_ITEM: {
       draft.items[action.key] = { name: action.item, counter: 0 };
       draft.value = '';
-      break;
+      return draft;
     }
     case VOTE_ITEM: {
-      const { items } = draft;
+      const items = draft.items;
 
       const currKey = action.key;
       const { prevKey } = prevState;
@@ -38,7 +38,7 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
 
       draft.items = items;
       draft.prevKey = currKey === prevKey ? '' : action.key;
-      break;
+      return draft;
     }
     case GET_ITEM: {
       break;
