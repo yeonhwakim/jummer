@@ -25,7 +25,7 @@ npm run build
 ```
 
 ```bash
-Create index.html file.
+Create index.html file in dist directory.
 
 ADD
 
