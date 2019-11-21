@@ -3,7 +3,7 @@ import {
   SET_ITEM, ADD_ITEM, VOTE_ITEM, GET_ITEM,
 } from './actionTypes';
 
-const initialState = {
+export const initialState = {
   value: '',
   items: {},
   prevKey: '',
