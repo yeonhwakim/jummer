@@ -47,7 +47,7 @@ export default () => {
     dispatch(addItem(input.current.value, generateKey()));
   };
 
-  const voteItems = (key) => dispatch(voteItem(key));
+  const voteItems = (id) => dispatch(voteItem(id));
 
   return (
     <MainTemplate icons={<VoteRoomMenu />} title="roumit lunchTime">
@@ -63,7 +63,7 @@ export default () => {
           : (
             <Items>
               {
-                items.map(item => (
+                items.map((item) => (
                   <Item key={item.key}>
                     <ItemInfo>
                       <div className="name">

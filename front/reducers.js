@@ -6,7 +6,7 @@ import {
 export const initialState = {
   value: '',
   items: [],
-  prevKey: '',
+  prevId: '',
 };
 
 export const reducer = (prevState = initialState, action) => produce(prevState, (draft) => {
@@ -16,28 +16,35 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
       return draft;
     }
     case ADD_ITEM: {
-      draft.items.unshift({ id: action.key, key: action.key, name: action.item, counter: 0 });
+      draft.items.unshift({
+        id: action.key, key: action.key, name: action.item, counter: 0,
+      });
       draft.value = '';
       return draft;
     }
     case VOTE_ITEM: {
       const items = draft.items;
 
-      const currKey = action.key;
-      const { prevKey } = prevState;
+      const currId = action.id;
+      const { prevId } = prevState;
 
-      const currItem = items[currKey];
-      const updateCounter = currKey === prevKey ? currItem.counter - 1 : currItem.counter + 1;
-      items[currKey].counter = updateCounter;
+      const updateCounter = (current, currId, prevId) => {
+        const Item = items.filter((item) => item.id === (current ? currId : prevId))[0];
+        const counter = current
+          ? currId === prevId
+            ? Item.counter - 1 : Item.counter + 1
+          : Item.counter - 1;
+        Item.counter = counter;
+      };
 
-      if (prevKey !== '' && currKey !== prevKey) {
-        const prevItem = items[prevKey];
-        const backCounter = prevItem.counter - 1;
-        items[prevKey].counter = backCounter;
+      updateCounter(true, currId, prevId);
+
+      if (prevId !== '' && currId !== prevId) {
+        updateCounter(false, currId, prevId);
       }
 
       draft.items = items;
-      draft.prevKey = currKey === prevKey ? '' : action.key;
+      draft.prevId = currId === prevId ? '' : currId;
       return draft;
     }
     case GET_ITEM: {

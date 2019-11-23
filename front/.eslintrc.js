@@ -28,6 +28,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'no-param-reassign': 0,
     'no-alert': 0,
-    'prefer-destructuring': 0
+    'prefer-destructuring': 0,
+    'no-nested-ternary': 0
   }
 };
