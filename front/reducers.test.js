@@ -1,43 +1,45 @@
-import { reducer, initialState } from "./reducers";
+import { reducer, initialState } from './reducers';
 
-import { setItem, addItem, voteItem, getItem } from "./actions";
+import {
+  setItem, addItem, voteItem, getItem,
+} from './actions';
 
-import { generateKey } from "./js/tools";
+import { generateKey } from './js/tools';
 
-test("setItem", () => {
-  const state = reducer(initialState, setItem("치킨"));
+test('setItem', () => {
+  const state = reducer(initialState, setItem('치킨'));
 
-  expect(state.value).toEqual("치킨");
+  expect(state.value).toEqual('치킨');
 });
 
-test("addItem", () => {
+test('addItem', () => {
   const key = generateKey();
-  const state = reducer(initialState, addItem("치킨", key));
+  const state = reducer(initialState, addItem('치킨', key));
 
   const { name, counter } = state.items[key];
 
-  expect(state.value).toEqual("");
-  expect(name).toEqual("치킨");
+  expect(state.value).toEqual('');
+  expect(name).toEqual('치킨');
   expect(counter).toEqual(0);
 });
 
-test("firstVote", () => {
+test('firstVote', () => {
   const key1 = generateKey();
   const key2 = generateKey();
 
   const initState = {
     items: {
     },
-    prevKey: ""
+    prevKey: '',
   };
 
   initState.items[key1] = {
-    item: "치킨",
-    counter: 0
+    item: '치킨',
+    counter: 0,
   };
   initState.items[key2] = {
-    item: "피자",
-    counter: 0
+    item: '피자',
+    counter: 0,
   };
 
   const state = reducer(initState, voteItem(key1));
@@ -48,16 +50,16 @@ test("firstVote", () => {
   expect(prevKey).toBe(key1);
 });
 
-test("cancelVote", () => {
+test('cancelVote', () => {
   const voteKey = generateKey();
   const initState = {
     items: {},
-    prevKey: voteKey
+    prevKey: voteKey,
   };
 
   initState.items[voteKey] = {
-    item: "치킨",
-    counter: 1
+    item: '치킨',
+    counter: 1,
   };
 
   const state = reducer(initState, voteItem(voteKey));
@@ -65,24 +67,24 @@ test("cancelVote", () => {
   const { items, prevKey } = state;
 
   expect(items[voteKey].counter).toEqual(initState.items[voteKey].counter - 1);
-  expect(prevKey).toEqual("");
+  expect(prevKey).toEqual('');
 });
 
-test("anotherItemVote", () => {
+test('anotherItemVote', () => {
   const key1 = generateKey();
   const key2 = generateKey();
   const initState = {
     items: {},
-    prevKey: key2
+    prevKey: key2,
   };
 
   initState.items[key1] = {
-    item: "치킨",
-    counter: 0
+    item: '치킨',
+    counter: 0,
   };
   initState.items[key2] = {
-    item: "피자",
-    counter: 1
+    item: '피자',
+    counter: 1,
   };
 
   const state = reducer(initState, voteItem(key1));
@@ -94,19 +96,18 @@ test("anotherItemVote", () => {
   expect(prevKey).toEqual(key1);
 });
 
-test("getItem", () => {
-  const initialState = {
+test('getItem', () => {
+  const initState = {
     items: {
       1: {
-        item: "치킨",
-        counter: 1
-      }
+        item: '치킨',
+        counter: 1,
+      },
     },
-    prevKey: 1
+    prevKey: 1,
   };
 
-  const state = reducer(initialState, getItem());
+  const state = reducer(initState, getItem());
 
   expect(state).toEqual(false);
 });
-

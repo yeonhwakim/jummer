@@ -13,9 +13,9 @@ export const addItem = (item, key) => ({
   key,
 });
 
-export const voteItem = (key) => ({
+export const voteItem = (id) => ({
   type: VOTE_ITEM,
-  key,
+  id,
 });
 
 export const getItem = () => ({ type: GET_ITEM });
