@@ -5,7 +5,7 @@ import {
 
 export const initialState = {
   value: '',
-  items: {},
+  items: [],
   prevKey: '',
 };
 
@@ -16,7 +16,7 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
       return draft;
     }
     case ADD_ITEM: {
-      draft.items[action.key] = { name: action.item, counter: 0 };
+      draft.items.unshift({ id: action.key, key: action.key, name: action.item, counter: 0 });
       draft.value = '';
       return draft;
     }

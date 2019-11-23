@@ -58,22 +58,22 @@ export default () => {
         </div>
       </AddItemForm>
       {
-        !Object.keys(items).length
+        !items.length
           ? <NotiAddItem>점심 메뉴를 추가해주세요.</NotiAddItem>
           : (
             <Items>
               {
-              Object.keys(items).reverse().map((key) => (
-                <Item key={key}>
-                  <ItemInfo>
-                    <div className="name">
-                      <div className="ellipsis">{items[key].name}</div>
-                    </div>
-                    <button type="button" className="counter" onClick={() => voteItems(key)}>{items[key].counter}</button>
-                  </ItemInfo>
-                </Item>
-              ))
-            }
+                items.map(item => (
+                  <Item key={item.key}>
+                    <ItemInfo>
+                      <div className="name">
+                        <div className="ellipsis">{item.name}</div>
+                      </div>
+                      <button type="button" className="counter" onClick={() => voteItems(item.id)}>{item.counter}</button>
+                    </ItemInfo>
+                  </Item>
+                ))
+              }
             </Items>
           )
       }
