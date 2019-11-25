@@ -23,18 +23,19 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
       return draft;
     }
     case VOTE_ITEM: {
-      const items = draft.items;
+      const prevItems = draft.items;
 
       const currId = action.id;
       const { prevId } = prevState;
 
-      const updateCounter = (current, currId, prevId) => {
-        const Item = items.filter((item) => item.id === (current ? currId : prevId))[0];
+      const updateCounter = (current, currentId, previousId) => {
+        const item = prevItems
+          .filter((prevItem) => prevItem.id === (current ? currentId : previousId))[0];
         const counter = current
-          ? currId === prevId
-            ? Item.counter - 1 : Item.counter + 1
-          : Item.counter - 1;
-        Item.counter = counter;
+          ? currentId === previousId
+            ? item.counter - 1 : item.counter + 1
+          : item.counter - 1;
+        item.counter = counter;
       };
 
       updateCounter(true, currId, prevId);
@@ -43,7 +44,7 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
         updateCounter(false, currId, prevId);
       }
 
-      draft.items = items;
+      draft.items = prevItems;
       draft.prevId = currId === prevId ? '' : currId;
       return draft;
     }
