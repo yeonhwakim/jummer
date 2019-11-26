@@ -1,6 +1,6 @@
 import { produce } from 'immer';
 import {
-  SET_ITEM, ADD_ITEM, VOTE_ITEM, GET_ITEM,
+  SET_ITEM, ADD_ITEM, VOTE_ITEM, GET_ITEMS,
 } from './actionTypes';
 
 export const initialState = {
@@ -48,12 +48,13 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
       draft.prevId = currId === prevId ? '' : currId;
       return draft;
     }
-    case GET_ITEM: {
-      break;
+    case GET_ITEMS: {
+      draft.items = action.res_items;
+      return draft;
     }
     default: {
       return prevState;
     }
   }
-  return false;
+  // return false;
 });

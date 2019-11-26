@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "test": "jest --watchAll",
+    "test": "jest ",
     "lint": "eslint --fix --ext .js,.jsx ."
   },
   "repository": {

@@ -1,7 +1,7 @@
 import { reducer, initialState } from './reducers';
 
 import {
-  setItem, addItem, voteItem, getItem,
+  setItem, addItem, voteItem, getItems,
 } from './actions';
 
 import { generateKey, filterItem } from './js/tools';
@@ -105,18 +105,10 @@ test('anotherItemVote', () => {
   expect(prevId).toEqual(key1);
 });
 
-test('getItem', () => {
+test('getItemsFirst', () => {
   const initState = {
-    items: {
-      1: {
-        item: '치킨',
-        counter: 1,
-      },
-    },
-    prevKey: 1,
+    items: [],
   };
-
-  const state = reducer(initState, getItem());
-
-  expect(state).toEqual(false);
+  const state = reducer(initState, getItems());
+  expect(filterItem(state.items, 'asdqwe!@#').name).toBe('치킨');
 });
