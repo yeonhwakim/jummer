@@ -3,6 +3,8 @@ import {
   SET_ITEM, ADD_ITEM, VOTE_ITEM, GET_ITEMS,
 } from './actionTypes';
 
+import { createMock } from './js/tools';
+
 export const initialState = {
   value: '',
   items: [],
@@ -49,7 +51,7 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
       return draft;
     }
     case GET_ITEMS: {
-      draft.items = action.res_items;
+      draft.items = action.resItems.data ? createMock(action.resItems) : action.resItems ;
       return draft;
     }
     default: {

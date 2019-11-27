@@ -109,6 +109,28 @@ test('getItemsFirst', () => {
   const initState = {
     items: [],
   };
-  const state = reducer(initState, getItems());
+
+  const resItems = [
+    {
+      id: 'asdqwe!@#',
+      key: 'asdqwe!@#',
+      name: '치킨',
+      counter: 0,
+    },
+    {
+      id: 'ewqdsa#@!',
+      key: 'ewqdsa#@!',
+      name: '피자',
+      counter: 1,
+    },
+    {
+      id: 'eqwdaw!@###',
+      key: 'eqwdaw!@###',
+      name: '과자',
+      counter: 0,
+    },
+  ];
+  
+  const state = reducer(initState, getItems(resItems));
   expect(filterItem(state.items, 'asdqwe!@#').name).toBe('치킨');
 });

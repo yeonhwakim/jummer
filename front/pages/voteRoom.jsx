@@ -12,6 +12,7 @@ import {
   setItem,
   addItem,
   voteItem,
+  reqItems,
 } from '../actions';
 
 import { generateKey } from '../js/tools';
@@ -34,6 +35,10 @@ export default () => {
   useEffect(() => {
     input.current.focus();
   }, []);
+
+  useEffect(() => {
+    dispatch(reqItems());
+  }, [dispatch]);
 
   const setItems = (e) => dispatch(setItem(e.target.value));
 
