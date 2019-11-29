@@ -2,14 +2,15 @@ import {
   setItem,
   addItem,
   voteItem,
-  getItem,
+  getItems,
+  reqItems,
 } from './actions';
 
 import {
   SET_ITEM,
   ADD_ITEM,
   VOTE_ITEM,
-  GET_ITEM,
+  GET_ITEMS,
 } from './actionTypes';
 
 test('setItem', () => {
@@ -24,6 +25,10 @@ test('voteItem', () => {
   expect(voteItem('key').type).toEqual(VOTE_ITEM);
 });
 
-test('getItem', () => {
-  expect(getItem().type).toEqual(GET_ITEM);
+test('getItems', () => {
+  expect(getItems().type).toEqual(GET_ITEMS);
+});
+
+test('reqItems', () => {
+  expect(typeof reqItems()).toEqual('function');
 });

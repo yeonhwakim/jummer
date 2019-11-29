@@ -1,10 +1,10 @@
 import { reducer, initialState } from './reducers';
 
 import {
-  setItem, addItem, voteItem, getItem,
+  setItem, addItem, voteItem, getItems,
 } from './actions';
 
-import { generateKey } from './js/tools';
+import { generateKey, filterItem } from './js/tools';
 
 test('setItem', () => {
   const state = reducer(initialState, setItem('치킨'));
@@ -16,8 +16,7 @@ test('addItem', () => {
   const key = generateKey();
   const state = reducer(initialState, addItem('치킨', key));
 
-  const { name, counter } = state.items[key];
-
+  const { name, counter } = filterItem(state.items, key);
   expect(state.value).toEqual('');
   expect(name).toEqual('치킨');
   expect(counter).toEqual(0);
@@ -28,86 +27,110 @@ test('firstVote', () => {
   const key2 = generateKey();
 
   const initState = {
-    items: {
-    },
-    prevKey: '',
-  };
-
-  initState.items[key1] = {
-    item: '치킨',
-    counter: 0,
-  };
-  initState.items[key2] = {
-    item: '피자',
-    counter: 0,
+    items: [
+      {
+        id: key1,
+        key: key1,
+        item: '치킨',
+        counter: 0,
+      },
+      {
+        id: key2,
+        key: key2,
+        item: '피자',
+        counter: 0,
+      },
+    ],
+    prevId: '',
   };
 
   const state = reducer(initState, voteItem(key1));
 
-  const { items, prevKey } = state;
+  const { items, prevId } = state;
 
-  expect(items[key1].counter).toBe(1);
-  expect(prevKey).toBe(key1);
+  expect(filterItem(items, key1).counter).toBe(1);
+  expect(prevId).toBe(key1);
 });
 
 test('cancelVote', () => {
-  const voteKey = generateKey();
+  const key = generateKey();
   const initState = {
-    items: {},
-    prevKey: voteKey,
+    items: [
+      {
+        id: key,
+        key,
+        item: '치킨',
+        counter: 1,
+      },
+    ],
+    prevId: key,
   };
 
-  initState.items[voteKey] = {
-    item: '치킨',
-    counter: 1,
-  };
+  const state = reducer(initState, voteItem(key));
 
-  const state = reducer(initState, voteItem(voteKey));
+  const { items, prevId } = state;
 
-  const { items, prevKey } = state;
-
-  expect(items[voteKey].counter).toEqual(initState.items[voteKey].counter - 1);
-  expect(prevKey).toEqual('');
+  expect(filterItem(items, key).counter).toEqual(filterItem(initState.items, key).counter - 1);
+  expect(prevId).toEqual('');
 });
 
 test('anotherItemVote', () => {
   const key1 = generateKey();
   const key2 = generateKey();
-  const initState = {
-    items: {},
-    prevKey: key2,
-  };
 
-  initState.items[key1] = {
-    item: '치킨',
-    counter: 0,
-  };
-  initState.items[key2] = {
-    item: '피자',
-    counter: 1,
+  const initState = {
+    items: [
+      {
+        id: key1,
+        key: key1,
+        item: '치킨',
+        counter: 0,
+      },
+      {
+        id: key2,
+        key: key2,
+        item: '피자',
+        counter: 1,
+      },
+    ],
+    prevId: key2,
   };
 
   const state = reducer(initState, voteItem(key1));
 
-  const { items, prevKey } = state;
+  const { items, prevId } = state;
 
-  expect(items[key1].counter).toEqual(initState.items[key1].counter + 1);
-  expect(items[key2].counter).toEqual(initState.items[key2].counter - 1);
-  expect(prevKey).toEqual(key1);
+  expect(filterItem(items, key1).counter).toEqual(filterItem(initState.items, key1).counter + 1);
+  expect(filterItem(items, key2).counter).toEqual(filterItem(initState.items, key2).counter - 1);
+  expect(prevId).toEqual(key1);
 });
 
-test('getItem', () => {
+test('getItemsFirst', () => {
   const initState = {
-    items: {
-      1: {
-        item: '치킨',
-        counter: 1,
-      },
-    },
-    prevKey: 1,
+    items: [],
   };
 
-  const state = reducer(initState, getItem());
-
-  expect(state).toEqual(false);
+  const resItems = [
+    {
+      id: 'asdqwe!@#',
+      key: 'asdqwe!@#',
+      name: '치킨',
+      counter: 0,
+    },
+    {
+      id: 'ewqdsa#@!',
+      key: 'ewqdsa#@!',
+      name: '피자',
+      counter: 1,
+    },
+    {
+      id: 'eqwdaw!@###',
+      key: 'eqwdaw!@###',
+      name: '과자',
+      counter: 0,
+    },
+  ];
+  
+  const state = reducer(initState, getItems(resItems));
+  expect(filterItem(state.items, 'asdqwe!@#').name).toBe('치킨');
 });

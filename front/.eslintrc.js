@@ -29,6 +29,8 @@ module.exports = {
     'no-param-reassign': 0,
     'no-alert': 0,
     'prefer-destructuring': 0,
-    'no-nested-ternary': 0
+    'no-nested-ternary': 0,
+    'no-use-before-define':0,
+    'dot-notation': 0,
   }
 };

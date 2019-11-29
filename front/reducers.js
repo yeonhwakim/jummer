@@ -1,7 +1,9 @@
 import { produce } from 'immer';
 import {
-  SET_ITEM, ADD_ITEM, VOTE_ITEM, GET_ITEM,
+  SET_ITEM, ADD_ITEM, VOTE_ITEM, GET_ITEMS,
 } from './actionTypes';
+
+import { createMock } from './js/tools';
 
 export const initialState = {
   value: '',
@@ -48,12 +50,13 @@ export const reducer = (prevState = initialState, action) => produce(prevState, 
       draft.prevId = currId === prevId ? '' : currId;
       return draft;
     }
-    case GET_ITEM: {
-      break;
+    case GET_ITEMS: {
+      draft.items = action.resItems.data ? createMock(action.resItems) : action.resItems ;
+      return draft;
     }
     default: {
       return prevState;
     }
   }
-  return false;
+  // return false;
 });
