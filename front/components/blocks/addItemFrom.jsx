@@ -15,6 +15,7 @@ export const AddItemForm = styled.form`
   input {
     position: absolute;
     left: 1px;
+    top: 1px;
     box-sizing: border-box;
     border: 0;
     border-radius: 5px;
