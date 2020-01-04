@@ -2,17 +2,14 @@ const app = require('express')();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const voteRoom = io.of('/voteRoom');
-const { Pool } = require('pg');
-const dotenv = require('dotenv');
-
-dotenv.config();
+const { Pool } = require('pg')
 
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASS,
-  port: process.env.DB_PORT,
+  user: 'yeonhwa',
+  host: 'jummer.cupxpirjrt9s.ap-northeast-2.rds.amazonaws.com',
+  database: 'jummer',
+  password: 'qet135!#%',
+  port: 5432,
 });
 
 const { log: print } = console;
@@ -85,4 +82,4 @@ const insertItem = (data) => pool.query('INSERT INTO once(room, id, counter) VAL
   .then(() => true)
   .catch(err => console.log('err5',err))
 
-server.listen(process.env.PORT, () => print('running 5000'));
+server.listen(5000, () => print('running 5000'));
