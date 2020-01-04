@@ -2,8 +2,6 @@ const shortid = require('shortid');
 
 export const generateKey = () => shortid.generate() + Date.now();
 
-export const generateId = () => shortid.generate();
-
 export const filterItem = (items, key) => items.filter((item) => item.id === key)[0];
 
 export const createMock = (resItems) => {

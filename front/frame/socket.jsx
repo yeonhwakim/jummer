@@ -1,53 +1,19 @@
 import React, { useEffect } from 'react';
 import io from 'socket.io-client';
 
-import {
-  useDispatch,
-} from 'react-redux';
-
-import {
-  addItem,
-  getItems,
-  voteItem,
-  updateItem,
-  updatePrevId,
-} from '../actions';
-
 const { log: print } = console;
 
 export default () => {
-  const dispatch = useDispatch();
   useEffect(() => {
-    window.socket = io('http://localhost:5000/voteRoom', {
+    window.socket = io('http://localhost:3000', {
       transports: ['websocket'],
     });
-
     const { socket } = window;
-
+    print('socket connect');
     socket.on('connect', () => {
+      socket.emit('test', 'karen');
       print('socket connected');
-    });
-
-    socket.on('getItems', (data) => {
-      dispatch(getItems(data));
-    });
-
-    socket.on('addItem', (data) => {
-      dispatch(addItem(data.name, data.key));
-    });
-
-    socket.on('voteItem', (data) => {
-      dispatch(voteItem(data));
-    });
-
-    socket.on('updateItem', (data) => {
-      dispatch(updateItem(data.currId, data.prevId));
-    });
-
-    socket.on('updatePrevId', (data) => {
-      if (window.user === data.counter) {
-        dispatch(updatePrevId(data.id));
-      }
+      socket.emit('test');
     });
   }, []);
 
