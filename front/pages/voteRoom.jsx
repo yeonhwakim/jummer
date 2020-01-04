@@ -10,12 +10,12 @@ import {
 
 import {
   setItem,
-  addItem,
-  voteItem,
-  reqItems,
+  joinRoom,
+  reqAddItem,
+  reqVoteItem,
 } from '../actions';
 
-import { generateKey } from '../js/tools';
+import { generateKey, generateId } from '../js/tools';
 
 import MainTemplate from '../components/templates/main';
 import VoteRoomMenu from '../components/blocks/menuVR';
@@ -24,9 +24,10 @@ import { Items, Item, ItemInfo } from '../components/blocks/voteRoomItems';
 import { NotiAddItem } from '../components/blocks/notiAddItem';
 
 export default () => {
-  const { value, items } = useSelector((state) => ({
+  const { value, items, prevId } = useSelector((state) => ({
     value: state.value,
     items: state.items,
+    prevId: state.prevId,
   }));
 
   const dispatch = useDispatch();
@@ -36,8 +37,13 @@ export default () => {
     input.current.focus();
   }, []);
 
+
   useEffect(() => {
-    dispatch(reqItems());
+    window.user = generateId();
+  }, []);
+
+  useEffect(() => {
+    dispatch(joinRoom());
   }, [dispatch]);
 
   const setItems = (e) => dispatch(setItem(e.target.value));
@@ -49,10 +55,10 @@ export default () => {
       return;
     }
 
-    dispatch(addItem(input.current.value, generateKey()));
+    dispatch(reqAddItem(input.current.value, generateKey()));
   };
 
-  const voteItems = (id) => dispatch(voteItem(id));
+  const voteItems = (id) => dispatch(reqVoteItem(id, prevId));
 
   return (
     <MainTemplate icons={<VoteRoomMenu />} title="roumit lunchTime">
@@ -74,7 +80,7 @@ export default () => {
                       <div className="name">
                         <div className="ellipsis">{item.name}</div>
                       </div>
-                      <button type="button" className="counter" onClick={() => voteItems(item.id)}>{item.counter}</button>
+                      <button type="button" className="counter" onClick={() => voteItems(item.id || item.key)}>{item.count || 0}</button>
                     </ItemInfo>
                   </Item>
                 ))

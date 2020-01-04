@@ -3,7 +3,8 @@ import {
   addItem,
   voteItem,
   getItems,
-  reqItems,
+  // reqItems,
+  joinRoom,
 } from './actions';
 
 import {
@@ -29,6 +30,10 @@ test('getItems', () => {
   expect(getItems().type).toEqual(GET_ITEMS);
 });
 
-test('reqItems', () => {
-  expect(typeof reqItems()).toEqual('function');
-});
+// test('reqItems', () => {
+//   expect(typeof reqItems()).toEqual('function');
+// });
+
+// test('joinRoom', () => {
+//   expect(typeof joinRoom()).toEqual('function');
+// });

@@ -13,7 +13,7 @@ const Index = () => (
   <BrowserRouter>
     <Global>
       <Socket />
-      <Route exact path="/" component={VoteRoom} />
+      <Route exact path="/voteRoom" component={VoteRoom} />
       <Route path="/list" component={RoomList} />
     </Global>
   </BrowserRouter>

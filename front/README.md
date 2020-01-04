@@ -49,7 +49,7 @@ ADD
 npm start
 ```
 
-<http://localhost:8000/>
+<http://localhost:8000/voteroom>
 
 ## E2E Test
 

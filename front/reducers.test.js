@@ -130,7 +130,7 @@ test('getItemsFirst', () => {
       counter: 0,
     },
   ];
-  
+
   const state = reducer(initState, getItems(resItems));
   expect(filterItem(state.items, 'asdqwe!@#').name).toBe('치킨');
 });

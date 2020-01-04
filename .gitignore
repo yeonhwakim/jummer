@@ -6,3 +6,4 @@ front/dist
 backup
 
 front/e2e_test/output/
+server/.env
