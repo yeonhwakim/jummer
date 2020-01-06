@@ -9,7 +9,6 @@ const socketMiddleware = () => (dispatch) => (action) => {
 };
 
 const thunkMiddleware = (store) => (dispatch) => (action) => {
-  // console.log(action);
   if (typeof action === 'function') {
     return action(store.dispatch, store.getState);
   }

@@ -27,4 +27,3 @@ test('voteItem', () => {
 test('getItems', () => {
   expect(getItems().type).toEqual(GET_ITEMS);
 });
-

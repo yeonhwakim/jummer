@@ -1,8 +1,8 @@
-const shortid = require('shortid');
+const shortId = require('shortid');
 
-export const generateKey = () => shortid.generate() + Date.now();
+export const generateKey = () => shortId.generate() + Date.now();
 
-export const generateId = () => shortid.generate();
+export const generateId = () => shortId.generate();
 
 export const filterItem = (items, key) => items.filter((item) => item.id === key)[0];
 
