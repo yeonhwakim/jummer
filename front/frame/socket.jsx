@@ -18,7 +18,7 @@ const { log: print } = console;
 export default () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    window.socket = io('http://localhost:5000/voteRoom', {
+    window.socket = io('http://13.125.121.219:5000/voteRoom', {
       transports: ['websocket'],
     });
 
